@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ประวัติโรงเรียนบ้านหนองผักหนอก</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------------- BODY ---------------- */
+body{
+  margin:0;
+  font-family:'Kanit',sans-serif;
+  background:linear-gradient(135deg,#f8f9fa,#eef1f5);
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+/* ---------------- NAVBAR ---------------- */
+nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(90deg,#000,#222);
+  padding:10px 20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  position:absolute;
+  left:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:gold;
+  font-weight:600;
+  font-size:15px;
+}
+
+.logo img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:2px solid gold;
+  background:#fff;
+}
+
+/* เมนู */
+.menu{
+  list-style:none;
+  display:flex;
+  gap:30px;
+  padding:0;
+  margin:0;
+}
+
+.menu > li{
+  position:relative;
+}
+
+.menu > li > a{
+  color:#fff;
+  text-decoration:none;
+  padding:10px;
+  display:block;
+  font-size:15px;
+  transition:0.3s;
+}
+
+.menu > li > a:hover{
+  color:gold;
+}
+
+/* submenu */
+.submenu{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#111;
+  border-radius:10px;
+  min-width:220px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.submenu a{
+  display:block;
+  padding:10px 15px;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.submenu a:hover{
+  background:gold;
+  color:#000;
+}
+
+.menu li:hover .submenu{
+  display:block;
+}
+
+/* ---------------- HAMBURGER ---------------- */
+.hamburger{
+  display:none;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+  position:absolute;
+  right:20px;
+}
+
+/* ---------------- CONTENT ---------------- */
+.content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:30px;
+  text-align:center;
+}
+
+.image-box{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.image-box img{
+  width:400px;
+  max-width:100%;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.text-box{
+  max-width:800px;
+}
+
+
+/* ---------------- FOOTER ---------------- */
+footer{
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:20px;
+}
+
+footer span{
+  color:gold;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width:900px){
+
+  nav{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .logo{
+    position:static;
+    margin-bottom:10px;
+  }
+
+  .hamburger{
+    display:block;
+    top:18px;
+  }
+
+  .menu{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    background:#111;
+  }
+
+  .menu.active{
+    display:flex;
+  }
+
+  .menu > li{
+    width:100%;
+  }
+
+  .submenu{
+    position:static;
+    box-shadow:none;
+  }
+
+  .submenu a{
+    padding-left:25px;
+  }
+
+  .content{
+    flex-direction:column;
+  }
+
+  .content img{
+    width:100%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+  <div class="logo">
+    <img src="pic/logo.png" alt="โลโก้">
+    โรงเรียนบ้านหนองผักหนอก
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <ul class="menu">
+
+    <li>
+      <a href="#">หน้าแรก ▾</a>
+      <div class="submenu">
+        <a href="index2.html">ประวัติโรงเรียน</a>
+        <a href="index3.html">วิสัยทัศน์ / สีประจำโรงเรียน</a>
+        <a href="index4.html">ผังโรงเรียน / อาคาร</a>
+        <a href="index5.html">เพลงมาร์ชประจำโรงเรียน</a>
+        <a href="index6.html">ผังองค์กร</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">บุคลากร ▾</a>
+      <div class="submenu">
+        <a href="index8.html">ฝ่ายบริหาร</a>
+        <a href="index9.html">ครูผู้สอน</a>
+        <a href="index10.html">รายชื่อคณะกรรมการการศึกษาขั้นพื้นฐานโรงเรียนบ้านหนองผักหนอก</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">ข้อมูลนักเรียน ▾</a>
+      <div class="submenu">
+        <a href="index11.html">อนุบาล</a>
+        <a href="index12.html">ประถม</a>
+        <a href="index13.html">มัธยม</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">ผลงานความภาคภูมิใจ ▾</a>
+      <div class="submenu">
+        <a href="index14.html">ผลงานนักเรียน</a>
+        <a href="index16.html">ผลงานครู</a>
+        <a href="#">รางวัล</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">Download ▾</a>
+      <div class="submenu">
+        <a href="index15.html">ตารางเรียน</a>
+        <a href="index17.html">ตราโรงเรียนบ้านหนองผักหนอก</a>
+      </div>
+    </li>
+
+    <li><a href="https://www.facebook.com/profile.php?id=100057577894346&locale=th_TH">ติดต่อ</a></li>
+
+  </ul>
+
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="content">
+
+  <div class="image-box">
+    <img src="pic/1.jpg" alt="อาคารโรงเรียน">
+  </div>
+
+  <div class="text-box">
+    <h3>
+      ๑. ประวัติ ที่ตั้ง / สภาพพื้นที่เขตบริการและกําหนดยุทธศาสตร์การพัฒนาตามนโยบาย
+    </h3>
+
+    <p>
+    โรงเรียนบ้านหนองผักหนอก สังกัดสํานักงานเขตพื้นที่การศึกษาการประถมศึกษาสระบุรี เขต ๒
+สํานักงานคณะกรรมการการศึกษาขั้นพื้นฐาน กระทรวงศึกษาธิการ จัดตั้งขึ้นโดยการนําของกํานันชื่น
+โกจินอก กํานันตําบลหนองย่างเสือ ได้มอบให้ นายวิชิต โกจินอก ครูโรงเรียนวัดสวนทองรวมมิตร
+มาทําการเปิดโรงเรียนประชาบาลองค์การบริหารส่วนจังหวัดสระบุรี มีเนื้อที่ ๑๕ ไร่ ๓ งาน ๑๗ ตารางวา
+โดยได้รับการบริจาค จากนายถนอม โตแป้น ได้ทําการเปิดการสอนดังนี้
+พ.ศ. ๒๕๑๘ มีครู ๑ คน นักเรียน ๗๐ คน
+พ.ศ. ๒๕๒๒ ได้รับอาคาร ป๑ฉ ปรับปรุง จํานวน ๔ ห้องเรียน งบประมาณ ๔๓๐,๐๐๐ บาท
+พ.ศ.๒๕๒๖ ได้รับอาคาร สปช.๑๐๒/๒๕๒๖ จํานวน ๓ ห้องเรียน งบประมาณ ๔๕๐,๐๐๐ บาท
+พ.ศ.๒๕๒๖ ได้รับอาคาร สปช.๒๐๓/๒๕๒๖ งบประมาณ ๓๕๐,๐๐๐ บาท
+พ.ศ.๒๕๒๖ รับบริจาคจากคณะกรรมการสถานศึกษา และนายพัฒนะ วิศาลวิทย์
+สร้างอาคารอํานวยการ งบประมาณ ๑๘๐,๐๐๐ บาท
+พ.ศ.๒๕๔๗ ได้รับบริจาคศาลาประชาคม จาก อบต.หนองย่างเสืองบประมาณ ๔,๐๐๐,๐๐ บาท
+พ.ศ.๒๕๔๘ รับบริจาคจากนายพัฒนะ วิศาลวิทย์ สร้างส้วม งบประมาณ ๑๕๐,๐๐๐ บาท
+พ.ศ.๒๕๕๑ คณะกรรมการสถานศึกษาสร้างโรงอาหารรวมใจงบประมาณ ๒๐๐,๐๐๐ บาท
+พ.ศ.๒๕๕๒ คณะกรรมการสถานศึกษาและนายพัฒนะ วิศาลวิทย์ ทอดผ้าป่าสร้าง
+อาคาร ผักหนอกรวมใจศรีพัฒน์ งบประมาณ ๘๐๐,๐๐๐ บาท
+บริษัท ยูนิลีเวอร์ ประเทศไทย จํากัด มอบลานเล่นบรีสพลังเล่นพลังเลอะ
+งบประมาณ ๖๐๐,๐๐๐ บาท
+พ.ศ.๒๕๕๓ พระครูศรีวรกิจจารักษ์ ( พิทักษ์ ) จัดทําห้องสมุดพระครูวรกิจจารักษ์
+
+และ สร้างส้วม ๔ ที่นั่ง งบประมาณ ๓๐๐,๐๐๐ บาท
+    </p>
+
+    <strong style="color:#ff66aa;">
+      “ความรู้คู่คุณธรรม นำความสุขสู่ชุมชน”
+    </strong>
+  </div>
+
+</div>
+
+
+  
+
+<!-- FOOTER -->
+<footer>
+© 2025 <span>โรงเรียนบ้านหนองผักหนอก</span> | พัฒนาโดยนักเรียน ปวส. วิทยาลัยเทคนิคมวกเหล็ก
+</footer>
+
+<script>
+function toggleMenu(){
+  document.querySelector(".menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

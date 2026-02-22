@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ดาวน์โหลดตราโรงเรียน</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --main-color:#0066ff;
+    --bg-light:linear-gradient(135deg,#4facfe,#00f2fe);
+    --bg-dark:#1e1e1e;
+    --card-light:#ffffff;
+    --card-dark:#2c2c2c;
+    --text-dark:#f1f1f1;
+}
+
+body{
+    font-family:'Prompt',sans-serif;
+    margin:0;
+    padding:0;
+    background:var(--bg-light);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    transition:0.3s;
+}
+
+body.dark{
+    background:var(--bg-dark);
+}
+
+.container{
+    background:var(--card-light);
+    width:90%;
+    max-width:550px;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+    text-align:center;
+    transition:0.3s;
+}
+
+body.dark .container{
+    background:var(--card-dark);
+    color:var(--text-dark);
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+.logo-img{
+    width:220px;
+    margin:20px 0;
+    transition:0.3s;
+}
+
+.logo-img:hover{
+    transform:scale(1.05);
+}
+
+.btn{
+    display:block;
+    margin:10px auto;
+    padding:12px;
+    width:80%;
+    max-width:300px;
+    background:var(--main-color);
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#004ecc;
+    transform:scale(1.05);
+}
+
+.home-btn{
+    background:#666;
+}
+
+.home-btn:hover{
+    background:#444;
+}
+
+.toggle{
+    position:absolute;
+    top:15px;
+    right:15px;
+    cursor:pointer;
+    background:#000;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.counter{
+    margin-top:15px;
+    font-size:14px;
+    color:#888;
+}
+
+@media (max-width:500px){
+    .container{
+        padding:20px;
+    }
+    .logo-img{
+        width:170px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="toggle" onclick="toggleDarkMode()">🌙 โหมดมืด</div>
+
+<div class="container">
+
+<button class="btn home-btn" onclick="goHome()">🏠 กลับหน้าแรก</button>
+
+<h1>ดาวน์โหลดตราโรงเรียน</h1>
+
+<img src="pic2/ตราโรงเรียนไม่มีพื้นหลัง.png" class="logo-img" alt="ตราโรงเรียน">
+
+<button class="btn"
+onclick="downloadFile('pic2/ตราโรงเรียนไม่มีพื้นหลัง.png','school-logo.png')">
+ดาวน์โหลด PNG
+</button>
+
+<div class="counter">
+จำนวนดาวน์โหลด: <span id="downloadCount">0</span> ครั้ง
+</div>
+
+</div>
+
+<script>
+
+// โหลดค่าตัวนับ
+let count = localStorage.getItem("downloadCount") || 0;
+document.getElementById("downloadCount").innerText = count;
+
+function downloadFile(filePath,fileName){
+    const link = document.createElement("a");
+    link.href = filePath;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    count++;
+    localStorage.setItem("downloadCount",count);
+    document.getElementById("downloadCount").innerText = count;
+}
+
+function toggleDarkMode(){
+    document.body.classList.toggle("dark");
+}
+
+function goHome(){
+    window.location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>

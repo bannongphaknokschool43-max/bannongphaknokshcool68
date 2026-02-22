@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ผลงานนักเรียน | โรงเรียนบ้านหนองผักหนอก</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===== BASE ===== */
+body{
+  margin:0;
+  font-family:'Kanit',sans-serif;
+  background:#fdfdfd;
+  color:#333;
+  line-height:1.8;
+  min-height:100vh;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  position:sticky;
+  top:0;
+  z-index:2000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 40px;
+  background:linear-gradient(to bottom,#000,#222);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:20px;
+  font-weight:600;
+  color:gold;
+}
+.logo img{ width:42px; }
+
+.menu{
+  list-style:none;
+  display:flex;
+  gap:35px;
+  margin:0;
+  padding:0;
+}
+.menu li{ position:relative; }
+
+.menu a{
+  text-decoration:none;
+  color:#fff;
+  padding:10px 0;
+  display:inline-block;
+}
+.menu a:hover{ color:gold; }
+
+.submenu{
+  position:absolute;
+  top:120%;
+  left:0;
+  background:#111;
+  min-width:220px;
+  border-radius:10px;
+  display:none;
+}
+.submenu a{
+  display:block;
+  padding:12px 18px;
+  color:#eee;
+}
+.submenu a:hover{
+  background:gold;
+  color:#000;
+}
+
+/* ===== MOBILE MENU ===== */
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  color:gold;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+
+  nav{
+    flex-direction:row;
+    justify-content:space-between;
+    padding:12px 20px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .menu{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#111;
+    flex-direction:column;
+    display:none;
+  }
+
+  .menu.active{
+    display:flex;
+  }
+
+  .menu li{
+    width:100%;
+    text-align:left;
+    padding:10px 20px;
+    border-top:1px solid #222;
+  }
+
+  .submenu{
+    position:static;
+    width:100%;
+    background:#000;
+    border-radius:0;
+    display:none;
+  }
+
+  .submenu a{
+    padding-left:30px;
+  }
+}
+
+
+/* ===== GALLERY ===== */
+.student-gallery{ margin:50px 0; }
+.student-gallery h3{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:25px;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  padding:0 40px;
+}
+
+.gallery-card{
+  background:#fff;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  cursor:pointer;
+  transition:.4s;
+}
+.gallery-card:hover{
+  transform:translateY(-8px);
+}
+.gallery-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.gallery-card p{
+  text-align:center;
+  padding:12px;
+  font-weight:600;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:3000;
+  justify-content:center;
+  align-items:center;
+}
+.lightbox img{
+  max-width:85%;
+  max-height:80%;
+  border-radius:12px;
+}
+.lightbox .close{
+  position:absolute;
+  top:25px;
+  right:35px;
+  font-size:36px;
+  color:#fff;
+  cursor:pointer;
+}
+.nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:50px;
+  color:#fff;
+  cursor:pointer;
+}
+.prev{ left:30px; }
+.next{ right:30px; }
+
+/* ===== FOOTER ===== */
+footer{
+  margin-top:60px;
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:18px;
+}
+footer span{ color:gold; }
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  background:gold;
+  color:#000;
+  padding:14px 32px;
+  border-radius:50px;
+  text-decoration:none;
+}
+/* ===== GALLERY ===== */
+.student-gallery{
+  margin:80px 0;
+  padding:0 20px;
+}
+
+.student-gallery h3{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:40px;
+  font-weight:700;
+  position:relative;
+}
+
+.student-gallery h3::after{
+  content:"";
+  width:80px;
+  height:4px;
+  background:gold;
+  display:block;
+  margin:12px auto 0;
+  border-radius:10px;
+}
+
+/* GRID */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:35px;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* CARD */
+.gallery-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  cursor:pointer;
+  transition:all .4s ease;
+  position:relative;
+}
+
+/* hover effect */
+.gallery-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+/* image */
+.gallery-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+
+/* zoom image */
+.gallery-card:hover img{
+  transform:scale(1.08);
+}
+
+/* caption */
+.gallery-card p{
+  padding:18px;
+  font-weight:600;
+  font-size:16px;
+  text-align:center;
+  background:#fff;
+}
+
+/* subtle gradient overlay */
+.gallery-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.15),transparent 60%);
+  opacity:0;
+  transition:.4s;
+}
+
+.gallery-card:hover::before{
+  opacity:1;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <img src="pic/logo.png">
+    โรงเรียนบ้านหนองผักหนอก
+  </div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul class="menu">
+    <li>
+      <a>หน้าแรก ▾</a>
+      <div class="submenu">
+        <a href="index2.html">ประวัติโรงเรียน</a>
+        <a href="index3.html">วิสัยทัศน์</a>
+        <a href="index4.html">ผังโรงเรียน</a>
+         <a href="index5.html">เพลงมาร์ช</a>
+      <a href="index6.html">ผังองค์กร</a>
+      </div>
+    </li>
+
+    <li>
+      <a >บุคลากร ▾</a>
+      <div class="submenu">
+        <a href="index8.html">ฝ่ายบริหาร</a>
+        <a href="index9.html">ครูผู้สอน</a>
+        <a href="index10.html">รายชื่อคณะกรรมการการศึกษาขั้นพื้นฐานโรงเรียนบ้านหนองผักหนอก</a>
+      </div>
+    </li>
+<li>
+      <a >ข้อมูลนักเรียน ▾</a>
+      <div class="submenu">
+      <a href="index11.html">อนุบาล</a>
+      <a href="index12.html">ประถม</a>
+      <a href="index13.html">มัธยม</a>
+      </div>
+    </li>
+   <li>
+      <a >ผลงานความภาคภูมิใจ ▾</a>
+      <div class="submenu">
+        <a href="index14.html">ผลงานนักเรียน</a>
+        <a href="index16.html">ผลงานครู</a>
+        <a href="#">รางวัล</a>
+      </div>
+    </li>
+    
+     <li><a> Dowload ▾</a>
+      <div class="submenu">
+         <a href="index15.html">ตารางเรียน</a>
+        <a href="index17.html">ตราโรงเรียนบ้านหนองผักหนอก</a>
+      </div>
+    </li>
+    <li><a href="https://www.facebook.com/profile.php?id=100057577894346&locale=th_TH">ติดต่อ</a></li>
+  </ul>
+</nav>
+
+<!-- GALLERY -->
+<section class="student-gallery">
+<h3>ผลงานนักเรียน</h3>
+<div class="gallery-grid">
+
+<div class="gallery-card"data-images='["pic/บอลเล่4.jpg","pic/บอลเล่1.jpg"]'onclick="openGallery(this)">
+<img src="pic1/มินิบอลเล่ ป้าย.png">
+<p>ชิงชนะเลิศแห่งประเทศไทย</p>
+</div>
+<div class="gallery-card"
+ data-images='["pic/กุสุม2.jpg","pic/กุสุม3.jpg","pic/กุสุม7.jpg","pic/กุสุม5.jpg","pic/กุสุม4.jpg"]'
+ onclick="openGallery(this)">
+  <img src="pic1/กุสุม ป้าย.png">
+  <p>การแข่งขันกีฬาต้านยาเสพติด กุสุมภ์ คัพ ๖๘ ครั้งที่ ๑ ประจำปี ๒๕๖๘</p>
+</div>
+
+<div class="gallery-card"
+ data-images='["pic/สระบุรี3.jpg","pic/สระบุรี2.jpg","pic/สระบุรี1.jpg","pic/สระบุรี.jpg","pic/สระบุรี4.jpg"]'
+ onclick="openGallery(this)">
+  <img src="pic1/สระบุรี.png">
+  <p>การแข่งขันกีฬาเยาวชนแห่งชาติครั้งที่ ๔๐ (รอบคัดเลือกตัวแทนภาค ๒ )</p>
+</div>
+
+<div class="gallery-card"
+ data-images='["pic/ฉลาม.jpg","pic/ฉลาม1.jpg","pic/ฉลาม2.jpg","pic/ฉลาม4.jpg","pic/ฉลาม3.jpg","pic/ฉลาม5.jpg"]'
+ onclick="openGallery(this)">
+  <img src="pic1/ฉลาม.png">
+  <p>การแข่งขันกีฬาเยาวชนแห่งชาติครั้งที่ ๔๐ "เยาวชนฉลามเกมส์"</p>
+</div>
+
+<div class="gallery-card"
+ data-images='["pic/ราชรี5.jpg","pic/ราชรี6.jpg","pic/ราชรี7.jpg","pic/ราชรี3.jpg","pic/ราชรี4.jpg"]'
+ onclick="openGallery(this)">
+  <img src="pic1/ราชบุรี.png">
+  <p>การแข่งขันกีฬาเยาวชนแห่งชาติ ครั้งที่ 39 “ราชบุรีเกมส์”</p>
+</div>
+
+<div class="gallery-card"
+ data-images='["pic/work2.jpg","pic/work3.jpg","pic/work4.jpg"]'
+ onclick="openGallery(this)">
+  <img src="pic/work2.jpg">
+  <p>รอเจ้าหน้าที่ใส่ข้อมูล</p>
+</div>
+
+<div class="gallery-card"
+ data-images='["pic/work3.jpg","pic/work4.jpg"]'
+ onclick="openGallery(this)">
+  <img src="pic/work3.jpg">
+  <p>รอเจ้าหน้าที่ใส่ข้อมูล</p>
+</div>
+
+<div class="gallery-card"
+ data-images='["pic/work4.jpg","pic/work2.jpg"]'
+ onclick="openGallery(this)">
+  <img src="pic/work4.jpg">
+  <p>รอเจ้าหน้าที่ใส่ข้อมูล</p>
+</div>
+
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<span class="close" onclick="closeGallery()">✕</span>
+<span class="nav-btn prev" onclick="changeImg(-1)">❮</span>
+<img id="lightbox-img">
+<span class="nav-btn next" onclick="changeImg(1)">❯</span>
+</div>
+
+<footer>
+© 2025 <span>โรงเรียนบ้านหนองผักหนอก</span>
+</footer>
+
+<a href="index.html" class="back-btn">⬅ กลับหน้าก่อนหน้า</a>
+
+<script>
+/* ===== MENU CLICK (มือถือ + คอม) ===== */
+document.querySelectorAll(".menu > li > a").forEach(link=>{
+  link.addEventListener("click",function(e){
+    const submenu=this.nextElementSibling;
+    if(submenu && submenu.classList.contains("submenu")){
+      e.preventDefault();
+      document.querySelectorAll(".submenu").forEach(sm=>{
+        if(sm!==submenu) sm.style.display="none";
+      });
+      submenu.style.display=
+        submenu.style.display==="block"?"none":"block";
+    }
+  });
+});
+
+document.addEventListener("click",function(e){
+  if(!e.target.closest(".menu")){
+    document.querySelectorAll(".submenu").forEach(sm=>{
+      sm.style.display="none";
+    });
+  }
+});
+
+/* ===== GALLERY ===== */
+let currentImages=[], index=0;
+
+function openGallery(card){
+  currentImages=JSON.parse(card.dataset.images);
+  index=0;
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightbox-img").src=currentImages[index];
+}
+function closeGallery(){
+  document.getElementById("lightbox").style.display="none";
+}
+function changeImg(step){
+  index+=step;
+  if(index<0) index=currentImages.length-1;
+  if(index>=currentImages.length) index=0;
+  document.getElementById("lightbox-img").src=currentImages[index];
+}
+function toggleMenu(){
+  document.querySelector(".menu").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>

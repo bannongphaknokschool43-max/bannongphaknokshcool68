@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รายชื่อคณะกรรมการสถานศึกษา</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Kanit',sans-serif;
+  background:#f4f4f4;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  background:linear-gradient(90deg,#000,#222);
+  padding:12px 30px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.logo{
+  position:absolute;
+  left:30px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:gold;
+  font-weight:600;
+}
+
+.logo img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:2px solid gold;
+  background:#fff;
+}
+
+.menu{
+  list-style:none;
+  display:flex;
+  gap:35px;
+  margin:0;
+  padding:0;
+}
+
+.menu li{
+  position:relative;
+}
+
+.menu a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  padding:10px 0;
+  display:block;
+}
+
+.menu a:hover{
+  color:gold;
+}
+
+.submenu{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#111;
+  border-radius:8px;
+  min-width:220px;
+  padding:8px 0;
+}
+
+.submenu a{
+  padding:10px 18px;
+  color:#eee;
+}
+
+.submenu a:hover{
+  background:gold;
+  color:#000;
+}
+
+.menu li:hover .submenu{
+  display:block;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1100px;
+  margin:50px auto;
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+/* ===== TABLE ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  border:1px solid #333;
+  padding:10px;
+  text-align:center;
+}
+
+th{
+  background:#e6d5c3;
+  font-weight:600;
+}
+
+/* ===== BUTTONS ===== */
+.btn-group{
+  text-align:center;
+  margin-top:25px;
+}
+
+.btn{
+  padding:10px 25px;
+  margin:5px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-family:'Kanit',sans-serif;
+  font-weight:600;
+  transition:.3s;
+}
+
+.download{
+  background:linear-gradient(135deg,#28a745,#4cd964);
+  color:#fff;
+}
+
+.print{
+  background:linear-gradient(135deg,#007bff,#00c6ff);
+  color:#fff;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+footer{
+  text-align:center;
+  padding:18px;
+  margin-top:50px;
+  background:#111;
+  color:#ccc;
+}
+/* ===== MOBILE MENU ===== */
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+}
+
+@media (max-width: 768px){
+
+  nav{
+    justify-content:space-between;
+  }
+
+  .logo{
+    position:static;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .menu{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#111;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+    display:none;
+  }
+
+  .menu.active{
+    display:flex;
+  }
+
+  .menu li{
+    width:100%;
+    text-align:center;
+  }
+
+  .submenu{
+    position:static;
+    display:none;
+    width:100%;
+  }
+
+  .submenu a{
+    padding:12px;
+  }
+
+  .menu li.active .submenu{
+    display:block;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== เมนูเดิม ===== -->
+<nav>
+  <div class="logo"> 
+    <img src="pic/logo.png" alt="โลโก้"> 
+    โรงเรียนบ้านหนองผักหนอก 
+  </div>
+ <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul class="menu"> 
+    <li>
+      <a href="#">หน้าแรก ▾</a>
+      <div class="submenu">
+        <a href="index2.html">ประวัติโรงเรียน</a>
+        <a href="index3.html">วิสัยทัศน์ / สีโรงเรียน</a>
+        <a href="index4.html">ผังโรงเรียน</a>
+        <a href="index5.html">เพลงมาร์ช</a>
+        <a href="index6.html">ผังองค์กร</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">บุคลากร ▾</a>
+      <div class="submenu">
+        <a href="index8.html">ฝ่ายบริหาร</a>
+        <a href="index9.html">ครูผู้สอน</a>
+        <a href="index10.html">รายชื่อคณะกรรมการการศึกษาขั้นพื้นฐานโรงเรียนบ้านหนองผักหนอก</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">ข้อมูลนักเรียน ▾</a>
+      <div class="submenu">
+        <a href="index11.html">อนุบาล</a>
+        <a href="index12.html">ประถม</a>
+        <a href="index13.html">มัธยม</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">ผลงานความภาคภูมิใจ ▾</a>
+      <div class="submenu">
+        <a href="index14.html">ผลงานนักเรียน</a>
+        <a href="index16.html">ผลงานครู</a>
+      </div>
+    </li>
+
+    <li>
+      <a href="#">Download ▾</a>
+      <div class="submenu">
+        <a href="index15.html">ตารางเรียน</a>
+        <a href="index17.html">ตราโรงเรียนบ้านหนองผักหนอก</a>
+      </div>
+    </li>
+
+    <li><a href="https://www.facebook.com/profile.php?id=100057577894346&locale=th_TH">ติดต่อ</a></li>
+  </ul>
+</nav>
+
+<!-- ===== ตาราง ===== -->
+<div class="container">
+
+<h2>รายชื่อคณะกรรมการการศึกษาขั้นพื้นฐาน</h2>
+
+<table>
+<thead>
+<tr>
+<th>ที่</th>
+<th>รายชื่อ</th>
+<th>ตำแหน่ง</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>1</td><td>นางสาวประภาภรณ์ เพิ่มพูนผลสุข</td><td>ประธานกรรมการ</td></tr>
+<tr><td>2</td><td>นายประทีป แทนวงษ์</td><td>ผู้แทนผู้ปกครอง</td></tr>
+<tr><td>3</td><td>นายบัญชา กรมศิลป์</td><td>ผู้แทนครู</td></tr>
+<tr><td>4</td><td>นายประสิทธิ์ เขมา</td><td>ผู้แทนองค์กรชุมชน</td></tr>
+<tr><td>5</td><td>นายณเรศ เพ็ชรสิน</td><td>ผู้แทนองค์กรปกครองส่วนท้องถิ่น</td></tr>
+<tr><td>6</td><td>นางสาวปิภา เขียวเชื้อ</td><td>ผู้แทนศิษย์เก่า</td></tr>
+<tr><td>7</td><td>พระสมพร สุจิตโต</td><td>ผู้แทนพระภิกษุสงฆ์</td></tr>
+<tr><td>8</td><td>นางสิริ หนูล</td><td>ผู้แทนพระภิกษุสงฆ์</td></tr>
+<tr><td>9</td><td>นายสายชล วงประสิทธิ์</td><td>ผู้ทรงคุณวุฒิ</td></tr>
+<tr><td>10</td><td>นายสุวิช ทองละมูล</td><td>ผู้ทรงคุณวุฒิ</td></tr>
+<tr><td>11</td><td>นางจุรีภา วงศ์เกษียร</td><td>ผู้ทรงคุณวุฒิ</td></tr>
+<tr><td>12</td><td>นางสุภาวดี สวนอุ่นเกลียว</td><td>ผู้ทรงคุณวุฒิ</td></tr>
+<tr><td>13</td><td>นางสาววัชรพัชร์ สิทธิเรืองโรจน์</td><td>ผู้ทรงคุณวุฒิ</td></tr>
+<tr><td>14</td><td>นายอุทัย แสนสมบูรณ์</td><td>ผู้ทรงคุณวุฒิ</td></tr>
+<tr><td>15</td><td>ผู้อำนวยการโรงเรียนบ้านหนองผักหนอก</td><td>กรรมการและเลขานุการ</td></tr>
+</tbody>
+</table>
+
+<div class="btn-group">
+<button class="btn download" onclick="window.print()">⬇ ดาวน์โหลด / บันทึกเป็น PDF</button>
+<button class="btn print" onclick="window.print()">🖨 พิมพ์เอกสาร</button>
+</div>
+
+</div>
+
+<footer>
+© 2025 โรงเรียนบ้านหนองผักหนอก
+</footer>
+<script>
+function toggleMenu(){
+  document.querySelector(".menu").classList.toggle("active");
+}
+
+/* ===== เปิด/ปิดเมนูย่อยมือถือ ===== */
+document.querySelectorAll(".menu > li > a").forEach(item=>{
+  item.addEventListener("click", function(e){
+
+    if(window.innerWidth <= 768){
+
+      const parent = this.parentElement;
+      const isActive = parent.classList.contains("active");
+
+      // ปิดเมนูย่อยทั้งหมดก่อน
+      document.querySelectorAll(".menu > li").forEach(li=>{
+        li.classList.remove("active");
+      });
+
+      // ถ้ายังไม่เปิด -> เปิด
+      if(!isActive){
+        e.preventDefault();
+        parent.classList.add("active");
+      }
+      // ถ้ากดซ้ำ -> จะปิดเอง (เพราะเรา remove ไปแล้ว)
+
+    }
+
+  });
+});
+</script>
+
+
+</body>
+</html>

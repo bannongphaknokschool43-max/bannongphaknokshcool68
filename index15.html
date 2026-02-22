@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หน้าแรก</title>
+
+<style>
+
+/* ===== BODY ===== */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    padding-top:90px;
+}
+
+/* ===== NAV ===== */
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#e09e10;
+    z-index:1000;
+}
+
+nav ul{
+    list-style:none;
+    margin:0;
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    margin-left:80px;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    display:block;
+    padding:16px 20px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    background:#9eb2de;
+    border-radius:6px;
+}
+
+/* ===== SUBMENU ===== */
+.submenu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#fff;
+    min-width:220px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    border-radius:8px;
+}
+
+.submenu a{
+    color:#333;
+    padding:12px 16px;
+    display:block;
+    font-weight:normal;
+}
+
+.submenu a:hover{
+    background:#f1f5f9;
+}
+
+/* ===== LOGO ===== */
+.logo{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.logo img{
+    height:45px;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    padding:40px 20px;
+}
+
+/* ===== CARD ===== */
+.card{
+    text-align:center;
+    background:#fff;
+    padding:20px;
+    border:2px solid #ddd;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    width:340px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#2563eb;
+}
+
+.card h2{
+    margin-top:15px;
+    color:#1e40af;
+}
+
+.card img{
+    width:300px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card img:hover{
+    transform:scale(1.05);
+}
+
+/* ===== PDF BUTTONS ===== */
+.card a{
+    display:inline-block;
+    margin:6px 4px;
+    padding:8px 14px;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:14px;
+}
+
+.card a:hover{
+    background:#1e40af;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+    position:fixed;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:#fff;
+    padding:14px 22px;
+    border-radius:50px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    transition:0.3s;
+    z-index:2000;
+}
+
+.back-btn:hover{
+    transform:translateX(-50%) translateY(-4px);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <div class="logo">
+        <img src="pic/logo.png" alt="โลโก้โรงเรียน">
+    </div>
+
+<ul class="menu">
+
+<li>
+<a href="#">หน้าแรก ▾</a>
+<div class="submenu">
+<a href="index2.html">ประวัติโรงเรียน</a>
+<a href="index3.html">วิสัยทัศน์ / สีประจำโรงเรียน</a>
+<a href="index4.html">ผังโรงเรียน / อาคาร</a>
+<a href="index5.html">เพลงมาร์ชประจำโรงเรียน</a>
+<a href="index6.html">ผังองค์กร</a>
+</div>
+</li>
+
+<li>
+<a href="#">บุคลากร ▾</a>
+<div class="submenu">
+<a href="index8.html">ฝ่ายบริหาร</a>
+<a href="index9.html">ครูผู้สอน</a>
+<a href="index10.html">รายชื่อคณะกรรมการการศึกษาขั้นพื้นฐาน</a>
+</div>
+</li>
+
+<li>
+<a href="#">ข้อมูลนักเรียน ▾</a>
+<div class="submenu">
+<a href="index11.html">อนุบาล</a>
+<a href="index12.html">ประถม</a>
+<a href="index13.html">มัธยม</a>
+</div>
+</li>
+
+<li>
+<a href="#">ผลงานความภาคภูมิใจ ▾</a>
+<div class="submenu">
+<a href="index14.html">ผลงานนักเรียน</a>
+<a href="index16.html">ผลงานครู</a>
+<a href="#">รางวัล</a>
+</div>
+</li>
+
+<li>
+<a href="#">Download ▾</a>
+<div class="submenu">
+<a href="index15.html">ตารางเรียน</a>
+<a href="index17.html">ตราโรงเรียนบ้านหนองผักหนอก</a>
+</div>
+</li>
+
+<li><a href="https://www.facebook.com/profile.php?id=100057577894346&locale=th_TH">ติดต่อ</a></li>
+
+</ul>
+</nav>
+
+<!-- ===== CONTENT ===== -->
+<div class="container">
+
+<div class="card">
+<img src="pic2/ประถม1-3.png" alt="ตารางสอน">
+<h2>ชั้น</h2>
+<a href="pic2/ตารางเรียน - ป.1.pdf" target="_blank">ป.1</a>
+<a href="pic2/ตารางเรียน - ป.2.pdf" target="_blank">ป.2</a>
+<a href="pic2/ตารางเรียน - ป.3.pdf" target="_blank">ป.3</a>
+</div>
+
+<div class="card">
+<img src="pic2/4-5.png" alt="ตารางสอน">
+<h2>คลิกดูตารางสอน</h2>
+<a href="pic2/ตารางเรียน - ป.4.pdf" target="_blank">ม.1</a>
+<a href="pic2/ตารางเรียน - ป.5.pdf" target="_blank">ม.2</a>
+<a href="pic2/ตารางเรียน - ป.6.pdf" target="_blank">ม.3</a>
+</div>
+
+<div class="card">
+<img src="pic2/ม.1-3.png" alt="ตารางสอน">
+<h2>คลิกดูตารางสอน</h2>
+<a href="pic2/ตารางเรียน - ม.1.pdf" target="_blank">ม.1</a>
+<a href="pic2/ตารางเรียน - ม.2.pdf" target="_blank">ม.2</a>
+<a href="pic2/ตารางเรียน - ม.3.pdf" target="_blank">ม.3</a>
+</div>
+</div>
+
+<a href="index.html" class="back-btn">⬅ กลับหน้าก่อนหน้า</a>
+
+<script>
+document.querySelectorAll('.menu > li > a').forEach(link=>{
+link.addEventListener('click',function(e){
+const submenu=this.nextElementSibling;
+if(submenu && submenu.classList.contains('submenu')){
+e.preventDefault();
+document.querySelectorAll('.submenu').forEach(sm=>{
+if(sm!==submenu) sm.style.display='none';
+});
+submenu.style.display=submenu.style.display==='block'?'none':'block';
+}
+});
+});
+
+document.addEventListener('click',function(e){
+if(!e.target.closest('.menu')){
+document.querySelectorAll('.submenu').forEach(sm=>{
+sm.style.display='none';
+});
+}
+});
+</script>
+
+</body>
+</html>
